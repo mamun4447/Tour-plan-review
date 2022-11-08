@@ -5,7 +5,8 @@ import { AuthContext } from "../../Context/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState();
-  const { user, GoogleLogin, SinUpWithEmail } = useContext(AuthContext);
+  const { user, GoogleLogin, SinUpWithEmail, UpdateProfile } =
+    useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
@@ -29,7 +30,9 @@ const SignUp = () => {
         }
         SinUpWithEmail(email, password)
           .then((result) => {
+            handleUserPhotoName(name, image);
             form.reset();
+
             setError("");
             navigate("/");
           })
@@ -39,6 +42,15 @@ const SignUp = () => {
       }
     }
   };
+
+  //------User name&photo --------//
+  const handleUserPhotoName = (name, photoURL) => {
+    UpdateProfile(name, photoURL)
+      .then((result) => {})
+      .catch((error) => setError(error.message));
+  };
+
+  //=====Google SignIn=====//
 
   const handleGoogleSignIn = (event) => {
     event.preventDefault();
@@ -103,7 +115,8 @@ const SignUp = () => {
               type="text"
               name="name"
               className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Username"
+              placeholder="full name"
+              required
             />
           </div>
 
@@ -274,6 +287,6 @@ const SignUp = () => {
       </div>
     </section>
   );
-};
+};;;
 
 export default SignUp;
