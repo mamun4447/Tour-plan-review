@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import Reviews from "./Reviews";
 
 const Description = () => {
-  const data = useLoaderData();
-  if (data.success) {
-    var { _id, name, cost, image, rating, description } = data.datas;
+  const [datas, setDatas] = useState([]);
+  const serviceData = useLoaderData();
+  if (serviceData.success) {
+    var { _id, name, cost, image, rating, description } = serviceData.datas;
   } else {
-    console.log(data.message);
+    console.log(serviceData.message);
   }
+
+  fetch(`http://localhost:5000/review/${_id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.success) {
+        console.log(data.message);
+      } else {
+        setDatas(data.data);
+      }
+    });
   // console.log(datas);
   return (
     <>
@@ -73,7 +84,8 @@ const Description = () => {
           Real Stories
         </span>
       </h1>
-      <Reviews datas={data.datas} />
+
+      <Reviews id={_id} datas={datas} />
     </>
   );
 };
