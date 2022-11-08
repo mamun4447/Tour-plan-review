@@ -40,12 +40,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-review",
+        path: "/add-review/:id",
         element: (
           <PrivateRoute>
             <AddReview />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
         path: "/my-reviews",

@@ -73,9 +73,9 @@ const Description = () => {
           Real Stories
         </span>
       </h1>
-      <Reviews />
+      <Reviews datas={data.datas} />
     </>
   );
-};;;;;;;;;;;;;;;;;;;;
+};
 
 export default Description;
