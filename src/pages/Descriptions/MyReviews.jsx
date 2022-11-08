@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Reviews = () => {
+const MyReviews = () => {
   return (
     <div>
       <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -123,17 +123,9 @@ const Reviews = () => {
             </div>
           </aside>
         </article>
-        <div className="text-5xl flex justify-center items-center p-2 bg-white rounded-md">
-          <Link
-            to="/add-review"
-            className="p-5 w-20 cursor-pointer flex items-center justify-center bg-slate-50 rounded-full"
-          >
-            +
-          </Link>
-        </div>
       </section>
     </div>
   );
 };
 
-export default Reviews;
+export default MyReviews;
