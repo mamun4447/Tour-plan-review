@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaRegPaperPlane } from "react-icons/fa";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Navbar = () => {
+  const { user, LogOut } = useContext(AuthContext);
   return (
     <div>
       <nav className=" dark:bg-gray-900">
@@ -31,38 +33,46 @@ const Navbar = () => {
             </Link>
 
             {/* =======Optional with authentication======== */}
-            <Link
-              to="/add-review"
-              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-            >
-              Add Review
-            </Link>
-            <Link
-              to="/my-reviews"
-              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-            >
-              My reviews
-            </Link>
-            <Link
-              to="/blog"
-              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-            >
-              blog
-            </Link>
+            {user ? (
+              <>
+                <Link
+                  to="/add-review"
+                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                >
+                  Add Review
+                </Link>
+                <Link
+                  to="/my-reviews"
+                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                >
+                  My reviews
+                </Link>
+                <Link
+                  to="/blog"
+                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                >
+                  blog
+                </Link>
+                <button onClick={LogOut}>Sing Out</button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                >
+                  Log In
+                </Link>
 
-            <Link
-              to="/login"
-              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-            >
-              Log In
-            </Link>
+                <Link
+                  to="/sign-up"
+                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
 
-            <Link
-              to="/sign-up"
-              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-            >
-              Sign Up
-            </Link>
             {/* ======Optional end======= */}
           </div>
         </div>

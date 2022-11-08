@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div class="container  py-16 mx-auto bg-white rounded-md">
-      <div class=" items-center lg:flex ">
+    <div className="container  py-16 mx-auto bg-white rounded-md">
+      <div className=" items-center lg:flex ">
         {/* ----------Heading---------- */}
-        <div class="w-full lg:w-1/2 text-center md:text-left lg:text-left">
-          <div class="lg:max-w-lg ml-10">
-            <h1 class="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-5xl">
+        <div className="w-full lg:w-1/2 text-center md:text-left lg:text-left">
+          <div className="lg:max-w-lg ml-10">
+            <h1 className="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-5xl">
               Best Place To Choose Your Tour Plan
             </h1>
 
-            <p class="mt-2 text-gray-600 dark:text-gray-400 my-4">
+            <p className="mt-2 text-gray-600 dark:text-gray-400 my-4">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
               beatae error laborum ab amet sunt recusandae? Reiciendis natus
               perspiciatis optio.

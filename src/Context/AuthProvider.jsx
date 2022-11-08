@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import app from "../firebase.config";
-import { current } from "daisyui/src/colors";
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const GoogleLogin = (Provider) => {
-    return signInWithPopup(Provider);
+    return signInWithPopup(auth, Provider);
   };
   //LogOut
   const LogOut = () => {
