@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const LogIn = () => {
@@ -8,6 +8,9 @@ const LogIn = () => {
   const { user, GoogleLogin, LogInWithEmail } = useContext(AuthContext);
   const navigate = useNavigate();
   const Provider = new GoogleAuthProvider();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleLogin = (event) => {
     event.preventDefault();
@@ -15,7 +18,7 @@ const LogIn = () => {
     GoogleLogin(Provider)
       .then((result) => {
         setError("");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => setError(error.message));
   };
@@ -34,7 +37,7 @@ const LogIn = () => {
     } else {
       LogInWithEmail(email, password)
         .then((result) => {
-          navigate("/");
+          navigate(from, { replace: true });
           setError("");
         })
         .catch((error) => setError(error.message));

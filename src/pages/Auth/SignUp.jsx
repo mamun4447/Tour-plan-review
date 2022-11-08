@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const SignUp = () => {
@@ -9,6 +9,9 @@ const SignUp = () => {
     useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const hangleEmailSingUp = (event) => {
     event.preventDefault();
@@ -34,7 +37,7 @@ const SignUp = () => {
             form.reset();
 
             setError("");
-            navigate("/");
+            navigate(from, { replace: true });
           })
           .catch((error) => setError(error.message));
       } else {
@@ -61,7 +64,7 @@ const SignUp = () => {
         .then((result) => {
           event.target.reset();
           setError("");
-          navigate("/");
+          navigate(from, { replace: true });
         })
         .then((error) => setError(error));
     }
