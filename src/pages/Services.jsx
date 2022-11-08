@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
-    return (
-      <div className="grid grid-cols-3">
+  return (
+    <>
+      <div className="grid grid-cols-3 ">
         <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
           <div class="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
             <img
@@ -74,7 +76,17 @@ const Services = () => {
           </div>
         </div>
       </div>
-    );
+      {/* ========Add service button====== */}
+      <div className="text-center m-5">
+        <Link
+          className="btn bg-blue-600 border-none text-center"
+          to="/add-service"
+        >
+          Add Service
+        </Link>
+      </div>
+    </>
+  );
 };
 
 export default Services;

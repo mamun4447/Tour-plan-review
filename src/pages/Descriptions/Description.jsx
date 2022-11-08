@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Reviews from "./Reviews";
 
 const Description = () => {
   return (
-    <div>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="relative flex">
-          <div className="min-h-screen lg:w-1/3"></div>
-          <div className="container flex flex-col justify-center w-full min-h-screen px-6 py-10 mx-auto lg:absolute lg:inset-x-0">
+    <>
+      <section className="  dark:bg-gray-900">
+        <div className="relative flex container mx-auto bg-white rounded-md">
+          <div className="container flex flex-col justify-center w-full min-h-screen px-10 py-10 mx-auto lg:inset-x-0">
             <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl xl:text-5xl dark:text-white">
               What our <span className="text-blue-500">customers</span> <br />
             </h1>
@@ -41,7 +42,17 @@ const Description = () => {
           </div>
         </div>
       </section>
-    </div>
+
+      {/* =====Reviews====== */}
+      <h1 className="text-center text-5xl font-semibold mt-10">
+        Real Happy Customer'
+        <span className="text-blue-600">
+          s<br />
+          Real Stories
+        </span>
+      </h1>
+      <Reviews />
+    </>
   );
 };
 
