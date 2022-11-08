@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaRegPaperPlane } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -7,9 +8,10 @@ const Navbar = () => {
       <nav className=" dark:bg-gray-900">
         <div className="container p-6 mx-auto">
           <Link
-            className="block text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
+            className="flex justify-center items-center flex-col text-2xl font-bold text-center text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
             to="/"
           >
+            <FaRegPaperPlane />
             Brand
           </Link>
 
