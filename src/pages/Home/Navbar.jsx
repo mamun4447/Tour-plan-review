@@ -53,7 +53,22 @@ const Navbar = () => {
                 >
                   blog
                 </Link>
-                <button onClick={LogOut}>Sing Out</button>
+                <div className="flex items-center ">
+                  <button
+                    className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+                    onClick={LogOut}
+                  >
+                    Sing Out
+                  </button>
+                  <div
+                    className="avatar ml-3 tooltip cursor-pointer"
+                    data-tip={user?.displayName}
+                  >
+                    <div className="w-12  rounded-full">
+                      <img src={user?.photoURL} alt="" />
+                    </div>
+                  </div>
+                </div>
               </>
             ) : (
               <>
