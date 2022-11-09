@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const AddReview = () => {
   const { datas } = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   // console.log(user);
+  useTitle("add-review");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -48,7 +50,7 @@ const AddReview = () => {
   return (
     <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
       <h2 className="text-xl text-center mb-4 font-semibold text-gray-700 capitalize dark:text-white">
-        Add New Service
+        Add New Reviews
       </h2>
 
       <form onSubmit={handleSubmit}>
@@ -135,7 +137,7 @@ const AddReview = () => {
         {/* =======Submit button==== */}
         <div className="flex justify-end mt-6">
           <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
-            Add as Service
+            Add as Review
           </button>
         </div>
       </form>

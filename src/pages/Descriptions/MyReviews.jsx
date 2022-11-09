@@ -1,17 +1,39 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const { user } = useContext(AuthContext);
+  useTitle("my-reviews");
 
   useEffect(() => {
     fetch(`http://localhost:5000/review?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data.datas));
-  }, [user?.email]);
+  }, [user?.email, setReviews]);
   // console.log(reviews);
+
+  //====Delete Review====//
+  const handleDelete = (id) => {
+    // console.log(id);
+    const action = window.confirm("Are you sure for deleteting?");
+
+    if (action) {
+      fetch(`http://localhost:5000/review/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          if (data.deletedCount) {
+            const remaining = reviews.filter((review) => review._id !== id);
+            setReviews(remaining);
+          }
+        });
+    }
+  };
 
   return (
     <div>
@@ -102,17 +124,17 @@ const MyReviews = () => {
               </p>
               <div className="flex items-center mt-3 space-x-3 divide-x divide-gray-200 dark:divide-gray-600">
                 <Link
-                  href="#"
+                  to={`/update-review/${review._id}`}
                   className="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
                   Edit
                 </Link>
-                <Link
-                  href="#"
+                <button
+                  onClick={() => handleDelete(review._id)}
                   className="text-white bg-red-600 border border-gray-300 focus:outline-none hover:bg-gray-100 hover:text-black focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
                 >
                   Delete
-                </Link>
+                </button>
               </div>
             </aside>
           </article>

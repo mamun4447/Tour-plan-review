@@ -7,6 +7,9 @@ import Blog from "../pages/Blog";
 import AddReview from "../pages/Descriptions/AddReview";
 import Description from "../pages/Descriptions/Description";
 import MyReviews from "../pages/Descriptions/MyReviews";
+import UnknownReview from "../pages/Descriptions/UnknownReview";
+import UpdateReview from "../pages/Descriptions/UpdateReview";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home/Home";
 import PrivateRoute from "../pages/PrivateRoute";
 import Services from "../pages/Services";
@@ -15,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -69,6 +73,18 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LogIn />,
+      },
+      {
+        path: "/update-review/:id",
+        element: <UpdateReview />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/review/${params.id}`),
+      },
+      {
+        path: "/unknown-review/:id",
+        element: <UnknownReview />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviews/${params.id}`),
       },
     ],
   },

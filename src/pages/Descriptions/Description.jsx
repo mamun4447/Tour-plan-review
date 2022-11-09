@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import Reviews from "./Reviews";
 
 const Description = () => {
   const [datas, setDatas] = useState([]);
   const serviceData = useLoaderData();
+  useTitle("description");
+
+  
   if (serviceData.success) {
     var { _id, name, cost, image, rating, description } = serviceData.datas;
   } else {

@@ -1,8 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Reviews = ({ id, datas }) => {
   // console.log(datas);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const isLogedIn = (event) => {
+    event.preventDefault();
+    if (!user) {
+      const proceed = window.confirm("You have to LogedIn first!");
+      if (proceed) {
+        navigate("/login");
+      } else {
+        navigate(`/unknown-review/${id}`);
+      }
+    } else {
+      navigate(`/add-review/${id}`);
+    }
+  };
   return (
     <div>
       <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -109,6 +126,7 @@ const Reviews = ({ id, datas }) => {
         ))}
         <div className="text-5xl flex justify-center items-center p-2 bg-white rounded-md">
           <Link
+            onClick={isLogedIn}
             to={`/add-review/${id}`}
             className="p-5 w-20 cursor-pointer flex items-center justify-center bg-slate-50 rounded-full tooltip"
             data-tip="Give your feedback"

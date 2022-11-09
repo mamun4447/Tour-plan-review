@@ -31,6 +31,12 @@ const Navbar = () => {
             >
               Services
             </Link>
+            <Link
+              to="/blog"
+              className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
+            >
+              blog
+            </Link>
 
             {/* =======Optional with authentication======== */}
             {user ? (
@@ -47,12 +53,7 @@ const Navbar = () => {
                 >
                   My reviews
                 </Link>
-                <Link
-                  to="/blog"
-                  className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
-                >
-                  blog
-                </Link>
+
                 <div className="flex items-center ">
                   <button
                     className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"

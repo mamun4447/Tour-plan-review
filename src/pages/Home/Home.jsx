@@ -4,9 +4,11 @@ import SendMail from "./SendMail";
 import Hero from "./Hero";
 import { useLoaderData } from "react-router-dom";
 import HomeService from "./HomeService";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
   const { datasHome } = useLoaderData();
+  useTitle("Home");
   // console.log(datasHome);
   return (
     <div>

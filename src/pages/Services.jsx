@@ -2,10 +2,12 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import useTitle from "../hooks/useTitle";
 
 const Services = () => {
+  useTitle("Services");
   const { datas } = useLoaderData();
-  // console.log(datas);
+  console.log(datas);
 
   return (
     <>
