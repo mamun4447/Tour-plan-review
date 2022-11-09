@@ -18,7 +18,7 @@ const AddReview = () => {
 
     const review = {
       id: datas._id,
-      image: user.imageURL,
+      image: user.photoURL,
       serviceName: datas.name,
       username,
       email: user.email,

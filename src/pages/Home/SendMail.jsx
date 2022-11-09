@@ -19,7 +19,8 @@ const SendMail = () => {
 
               <p className="mt-4 text-gray-600 dark:text-gray-400">
                 be the first to knows when our{" "}
-                <span className="font-medium text-blue-500">Brand</span> is live
+                <span className="font-medium text-blue-500">Tour-Plan</span> is
+                live
               </p>
 
               <div className="flex flex-col mt-8 space-y-3 lg:space-y-0 lg:flex-row">

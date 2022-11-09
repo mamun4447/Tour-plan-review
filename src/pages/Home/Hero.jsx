@@ -9,13 +9,14 @@ const Hero = () => {
         <div className="w-full lg:w-1/2 text-center md:text-left lg:text-left">
           <div className="lg:max-w-lg ml-10">
             <h1 className="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-5xl">
-              Best Place To Choose Your Tour Plan
+              Best Place To Choose Your{" "}
+              <span className="text-blue-600">Tour Plan</span>
             </h1>
 
             <p className="mt-2 text-gray-600 dark:text-gray-400 my-4">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              beatae error laborum ab amet sunt recusandae? Reiciendis natus
-              perspiciatis optio.
+              Tour planning is a planning process in which transport orders are
+              grouped into tours and put into a certain order. The tour is
+              usually performed by one person or one vehicle.
             </p>
 
             <Link

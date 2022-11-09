@@ -22,6 +22,10 @@ const Services = () => {
         {datas.map((data) => (
           <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
             <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
+              {" "}
+              <p className="absolute px-2 text-white h-64 flex items-center justify-center w-96 mx-auto text-center bg-black rounded bg-opacity-0 opacity-0 hover:opacity-100 hover:bg-opacity-75">
+                {data.description.slice(0, 100)}...
+              </p>
               <img src={data.image} alt="" className="rounded h-64 w-full" />
             </div>
 
