@@ -7,7 +7,7 @@ const Hero = () => {
       <div className=" items-center lg:flex ">
         {/* ----------Heading---------- */}
         <div className="w-full lg:w-1/2 text-center md:text-left lg:text-left">
-          <div className="lg:max-w-lg ml-10">
+          <div className="lg:max-w-lg lg:ml-10">
             <h1 className="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-5xl">
               Best Place To Choose Your{" "}
               <span className="text-blue-600">Tour Plan</span>

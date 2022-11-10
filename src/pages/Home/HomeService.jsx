@@ -14,14 +14,14 @@ const HomeService = ({ datas }) => {
             : "cubic-bezier(0.34, 1.56, 0.64, 1)"
         }
       >
-        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-10">
+        <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {datas.map((data) => (
             <div
               key={data._id}
               className="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
             >
               <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
-                <p className=" p-2 h-24 flex items-center justify-center w-96 mx-auto text-center">
+                <p className="px-4 h-24 flex items-center justify-center w-96 mx-auto text-center">
                   {data.description.slice(0, 100)}...
                 </p>
 

@@ -93,7 +93,6 @@ const SignUp = () => {
     } else {
       GoogleLogin(provider)
         .then((result) => {
-          event.target.reset();
           setError("");
           toast.success("User Loged In successfully!");
           navigate(from, { replace: true });

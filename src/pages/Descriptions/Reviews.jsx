@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Reviews = ({ id, datas }) => {
   // console.log(datas);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const isLogedIn = (event) => {
     event.preventDefault();
-    const proceed = window.confirm("You have to LogedIn first!");
-    if (proceed) {
-      navigate(`/add-review/${id}`);
-    } else {
-      navigate(`/unknown-review/${id}`);
+    if (!user) {
+      const proceed = window.confirm("You have to LogedIn first!");
+      if (proceed) {
+        navigate(`/login`);
+      } else {
+        navigate(`/unknown-review/${id}`);
+      }
+      return;
     }
+    navigate(`/unknown-review/${id}`);
   };
   return (
     <div>
-      <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5">
         {datas.map((data) => (
           <article key={data._id}>
             <div className="flex items-center mb-4 space-x-4">

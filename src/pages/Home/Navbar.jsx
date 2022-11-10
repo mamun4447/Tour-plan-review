@@ -17,7 +17,7 @@ const Navbar = () => {
             Brand
           </Link>
 
-          <div className="flex items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
+          <div className="flex flex-wrap items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">
             <Link
               to="/"
               className="text-gray-800 dark:text-gray-200 mx-1.5 sm:mx-6"
