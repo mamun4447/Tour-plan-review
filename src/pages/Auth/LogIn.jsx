@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const LogIn = () => {
   const [error, setError] = useState(null);
@@ -16,13 +17,17 @@ const LogIn = () => {
 
   const handleGoogleLogin = (event) => {
     event.preventDefault();
-    setError("User all ready logedIn!");
-    GoogleLogin(Provider)
-      .then((result) => {
-        setError("");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => setError(error.message));
+    if (user) {
+      setError("User already loged in!");
+    } else {
+      GoogleLogin(Provider)
+        .then((result) => {
+          setError("");
+          navigate(from, { replace: true });
+          toast.success("Loged in succesfully!");
+        })
+        .catch((error) => setError(error.message));
+    }
   };
 
   //Email Login
@@ -41,6 +46,7 @@ const LogIn = () => {
         .then((result) => {
           navigate(from, { replace: true });
           setError("");
+          toast.success("Loged in succesfully!");
         })
         .catch((error) => setError(error.message));
     }

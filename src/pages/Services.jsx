@@ -32,7 +32,10 @@ const Services = () => {
       >
         <div className="grid grid-cols-3 gap-4 ">
           {datas.map((data) => (
-            <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+            <div
+              key={data._id}
+              className="flex flex-col items-center justify-center w-full max-w-sm mx-auto"
+            >
               <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md">
                 {" "}
                 <p className="p-2 h-24 flex items-center justify-center w-96 mx-auto text-center">
@@ -79,6 +82,6 @@ const Services = () => {
       </div>
     </>
   );
-};;;;;;;;;;;;;;;;;;;;;;;
+};
 
 export default Services;

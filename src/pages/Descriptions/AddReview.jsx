@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const AddReview = () => {
   const { datas } = useLoaderData();
@@ -40,6 +41,7 @@ const AddReview = () => {
         if (data.success) {
           console.log(data.message);
           form.reset();
+          toast.success("Review added!");
           navigate(`/services/${datas._id}`);
         } else {
           console.log(data.message);

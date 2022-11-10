@@ -2,6 +2,7 @@ import { success } from "daisyui/src/colors";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const UpdateReview = () => {
   const router = useParams();
@@ -52,9 +53,11 @@ const UpdateReview = () => {
             const newReviews = [approving, ...remaining];
             setReviews(newReviews);
           }
+toast.success("Updated!");
           navigate("/my-reviews");
         } else {
-          console.log(data.message);
+          // console.log(data.message);
+          toast.error(data.message);
         }
       });
 

@@ -18,7 +18,7 @@ const Reviews = ({ id, datas }) => {
     <div>
       <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {datas.map((data) => (
-          <article>
+          <article key={data._id}>
             <div className="flex items-center mb-4 space-x-4">
               {data?.image ? (
                 <img

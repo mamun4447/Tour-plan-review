@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const UnknownReview = () => {
-  const datas = useLoaderData();
-  console.log(datas);
-  const { user } = useContext(AuthContext);
+  const { datas } = useLoaderData();
+  // console.log(datas);
   const navigate = useNavigate();
   // console.log(user);
   useTitle("add-review");
@@ -19,7 +18,8 @@ const UnknownReview = () => {
     const description = form.description.value;
 
     const review = {
-      image: user?.photoURL,
+      id: datas._id,
+      image: datas?.image,
       serviceName: datas.name,
       username: "Unknown",
       email: "Unknown",
@@ -37,8 +37,9 @@ const UnknownReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data.message);
+          // console.log(data.message);
           form.reset();
+          toast.success("Review added!");
           navigate(`/services/${datas._id}`);
         } else {
           console.log(data.message);
@@ -56,19 +57,19 @@ const UnknownReview = () => {
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             {/* Service name */}
-            {/* <div>
+            <div>
               <label className="text-gray-700 dark:text-gray-200">
                 Service Name
               </label>
               <input
                 name="serviceName"
                 type="text"
-                // defaultValue={datas.name}
+                defaultValue={datas.name}
                 readOnly
                 placeholder="service name"
                 className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
               />
-            </div> */}
+            </div>
 
             {/* Rating */}
             <div>
@@ -103,6 +104,6 @@ const UnknownReview = () => {
       </section>
     </div>
   );
-};
+};;
 
 export default UnknownReview;

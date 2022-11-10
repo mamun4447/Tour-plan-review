@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [error, setError] = useState();
@@ -37,7 +38,7 @@ const SignUp = () => {
           .then((result) => {
             handleUserPhotoName(name, image);
             form.reset();
-
+            toast.success("User created successfully!");
             setError("");
             navigate(from, { replace: true });
           })
@@ -66,6 +67,7 @@ const SignUp = () => {
         .then((result) => {
           event.target.reset();
           setError("");
+          toast.success("User Loged In successfully!");
           navigate(from, { replace: true });
         })
         .then((error) => setError(error));

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import ScaleLoader from "react-spinners/ClipLoader";
+import { toast } from "react-toastify";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -12,7 +13,11 @@ const PrivateRoute = ({ children }) => {
   }
 
   if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return (
+      <Navigate to="/login" state={{ from: location }} replace>
+        {toast.error("Can't access without logIn")}
+      </Navigate>
+    );
   }
   return children;
 };

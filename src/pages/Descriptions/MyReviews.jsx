@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -30,6 +31,7 @@ const MyReviews = () => {
           if (data.deletedCount) {
             const remaining = reviews.filter((review) => review._id !== id);
             setReviews(remaining);
+            toast.success("Deleted successfully!");
           }
         });
     }

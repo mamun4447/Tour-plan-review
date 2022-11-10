@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import useTitle from "../hooks/useTitle";
+import { toast } from "react-toastify";
 
 const AddService = () => {
   useTitle("add-service");
@@ -36,8 +37,9 @@ const AddService = () => {
         if (success) {
           console.log(message);
           form.reset();
+          toast.success("New Service added!");
         } else {
-          console.error(message);
+          toast.error(success.message);
           form.reset();
         }
       });

@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         path: "/unknown-review/:id",
         element: <UnknownReview />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(`http://localhost:5000/services/${params.id}`),
       },
     ],
   },
