@@ -4,15 +4,43 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import { toast } from "react-toastify";
+import { ClipLoader, RiseLoader } from "react-spinners";
+import colorNames from "daisyui/src/colors/colorNames";
 
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 const SignUp = () => {
   const [error, setError] = useState();
-  const { user, GoogleLogin, SinUpWithEmail, UpdateProfile } =
+  const { user, loading, GoogleLogin, SinUpWithEmail, UpdateProfile } =
     useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
   useTitle("Register");
+
+  if (loading) {
+    return (
+      <>
+        <div className="flex items-center justify-center">
+          <RiseLoader color="#36d7b7" />
+        </div>
+        <ClipLoader
+          color={colorNames}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+        <div className="flex items-center justify-center">
+          <RiseLoader color="#36d7b7" />
+        </div>
+      </>
+    );
+  }
 
   const from = location.state?.from?.pathname || "/";
 

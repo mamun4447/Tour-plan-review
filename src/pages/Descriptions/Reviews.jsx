@@ -33,8 +33,11 @@ const Reviews = ({ id, datas }) => {
                   alt=""
                 />
               )}
-              <div className="space-y-1 font-medium dark:text-white">
-                <p>{data.username}</p>
+              <div>
+                <div className="space-y-1 font-medium dark:text-white">
+                  <p>{data.username}</p>
+                </div>
+                <p className="text-sm text-gray-400">{data.email}</p>
               </div>
             </div>
             <div className="flex items-center mb-1">

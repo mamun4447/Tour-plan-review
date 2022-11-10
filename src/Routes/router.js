@@ -23,18 +23,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://server-eight-flame.vercel.app/services"),
       },
       {
         path: "/services",
         element: <Services />,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () => fetch("https://server-eight-flame.vercel.app/services"),
       },
       {
         path: "/services/:id",
         element: <Description />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://server-eight-flame.vercel.app/services/${params.id}`),
       },
       {
         path: "/add-service",
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://server-eight-flame.vercel.app/services/${params.id}`),
       },
       {
         path: "/my-reviews",
@@ -78,13 +78,13 @@ const router = createBrowserRouter([
         path: "/update-review/:id",
         element: <UpdateReview />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/review/${params.id}`),
+          fetch(`https://server-eight-flame.vercel.app/review/${params.id}`),
       },
       {
         path: "/unknown-review/:id",
         element: <UnknownReview />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://server-eight-flame.vercel.app/services/${params.id}`),
       },
     ],
   },

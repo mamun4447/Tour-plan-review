@@ -13,7 +13,7 @@ const UpdateReview = () => {
 
   //======Update MyReview=======//
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${id}`)
+    fetch(`https://server-eight-flame.vercel.app/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data.datas);
@@ -35,7 +35,7 @@ const UpdateReview = () => {
       description,
     };
 
-    fetch(`http://localhost:5000/review/${id}`, {
+    fetch(`https://server-eight-flame.vercel.app/review/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -53,7 +53,7 @@ const UpdateReview = () => {
             const newReviews = [approving, ...remaining];
             setReviews(newReviews);
           }
-toast.success("Updated!");
+          toast.success("Updated!");
           navigate("/my-reviews");
         } else {
           // console.log(data.message);

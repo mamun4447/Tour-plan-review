@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import useTitle from "../hooks/useTitle";
+import { AuthContext } from "../Context/AuthProvider";
+import { ClipLoader, RiseLoader } from "react-spinners";
+import colorNames from "daisyui/src/colors/colorNames";
 
 const Services = () => {
   useTitle("Services");
+  const { loading } = useContext(AuthContext);
   const { datas } = useLoaderData();
   // console.log(datas);
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "red",
+  };
+  if (loading) {
+    return (
+      <>
+        <div className="flex items-center justify-center">
+          <RiseLoader color="#36d7b7" />
+        </div>
+        <ClipLoader
+          color={colorNames}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+        <div className="flex items-center justify-center">
+          <RiseLoader color="#36d7b7" />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

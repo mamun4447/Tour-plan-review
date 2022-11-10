@@ -29,7 +29,7 @@ const AddReview = () => {
       description,
     };
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://server-eight-flame.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

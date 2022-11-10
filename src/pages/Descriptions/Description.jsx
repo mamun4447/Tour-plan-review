@@ -15,7 +15,7 @@ const Description = () => {
     console.log(serviceData.message);
   }
 
-  fetch(`http://localhost:5000/review/${_id}`)
+  fetch(`https://server-eight-flame.vercel.app/review/${_id}`)
     .then((res) => res.json())
     .then((data) => {
       if (!data.success) {
