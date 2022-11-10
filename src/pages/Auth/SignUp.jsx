@@ -77,7 +77,7 @@ const SignUp = () => {
         <form onSubmit={hangleEmailSingUp} className="w-full max-w-md">
           <img
             className="object-cover w-24 h-24 mx-auto rounded-full"
-            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+            src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png"
             alt="user avatar"
           />
 
@@ -145,10 +145,10 @@ const SignUp = () => {
             <h2 className="mx-3 text-gray-400">Profile Photo</h2>
 
             <input
-              id="dropzone-file"
               name="image"
-              type="file"
-              className="hidden"
+              type="text"
+              className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              placeholder="image"
             />
           </label>
 

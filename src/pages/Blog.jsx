@@ -8,11 +8,11 @@ const Blog = () => {
       <section class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-12 mx-auto">
           <h1 class="text-2xl font-semibold text-gray-800 lg:text-4xl dark:text-white">
-            Frequently asked questions.
+            Know about some technology
           </h1>
 
           <div class="grid grid-cols-1 gap-8 mt-8 lg:mt-16 md:grid-cols-2 xl:grid-cols-2">
-            {/* question one */}
+            {/* question 1 */}
             <div>
               <div class="inline-block p-3 text-white bg-blue-600 rounded-lg">
                 <svg
@@ -37,11 +37,11 @@ const Blog = () => {
                 </h1>
 
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident placeat, consequatur eveniet veritatis quos
-                  dignissimos beatae dolores exercitationem laboriosam officia
-                  magnam atque blanditiis illum doloremque magni ex corrupti
-                  tempora quis.
+                  SQL is the programming language used to interface with
+                  relational databases. (Relational databases model data as
+                  records in rows and tables with logical links between them).
+                  NoSQL is a class of DBMs that are non-relational and generally
+                  do not use SQL.
                 </p>
               </div>
             </div>
@@ -70,11 +70,11 @@ const Blog = () => {
                 </h1>
 
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident placeat, consequatur eveniet veritatis quos
-                  dignissimos beatae dolores exercitationem laboriosam officia
-                  magnam atque blanditiis illum doloremque magni ex corrupti
-                  tempora quis.
+                  What is JWT (JSON Web Token)? JSON Web Token (JWT) is an open
+                  standard (RFC 7519) for securely transmitting information
+                  between parties as JSON object. It is compact, readable and
+                  digitally signed using a private key/ or a public key pair by
+                  the Identity Provider(IdP).
                 </p>
               </div>
             </div>
@@ -103,11 +103,10 @@ const Blog = () => {
                 </h1>
 
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident placeat, consequatur eveniet veritatis quos
-                  dignissimos beatae dolores exercitationem laboriosam officia
-                  magnam atque blanditiis illum doloremque magni ex corrupti
-                  tempora quis.
+                  JavaScript is a simple programming language that can be used
+                  with any browser that has the JavaScript Engine installed.
+                  Node. js, on the other hand, is an interpreter or execution
+                  environment for the JavaScript programming language.
                 </p>
               </div>
             </div>
@@ -136,11 +135,11 @@ const Blog = () => {
                 </h1>
 
                 <p class="mt-2 text-sm text-gray-500 dark:text-gray-300">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident placeat, consequatur eveniet veritatis quos
-                  dignissimos beatae dolores exercitationem laboriosam officia
-                  magnam atque blanditiis illum doloremque magni ex corrupti
-                  tempora quis.
+                  How NodeJS handle multiple client requests? NodeJS receives
+                  multiple client requests and places them into EventQueue.
+                  NodeJS is built with the concept of event-driven architecture.
+                  NodeJS has its own EventLoop which is an infinite loop that
+                  receives requests and processes them.
                 </p>
               </div>
             </div>

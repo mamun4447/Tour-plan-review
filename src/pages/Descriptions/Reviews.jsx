@@ -1,23 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Context/AuthProvider";
 
 const Reviews = ({ id, datas }) => {
   // console.log(datas);
-  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const isLogedIn = (event) => {
     event.preventDefault();
-    if (!user) {
-      const proceed = window.confirm("You have to LogedIn first!");
-      if (proceed) {
-        navigate("/login");
-      } else {
-        navigate(`/unknown-review/${id}`);
-      }
-    } else {
+    const proceed = window.confirm("You have to LogedIn first!");
+    if (proceed) {
       navigate(`/add-review/${id}`);
+    } else {
+      navigate(`/unknown-review/${id}`);
     }
   };
   return (

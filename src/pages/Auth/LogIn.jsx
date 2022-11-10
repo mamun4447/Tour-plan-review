@@ -52,7 +52,7 @@ const LogIn = () => {
         <form onSubmit={handleEmailLogin} className="w-full max-w-md">
           <img
             className="object-cover w-24 h-24 mx-auto rounded-full"
-            src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+            src="https://cdn3.iconfinder.com/data/icons/essential-rounded/64/Rounded-31-512.png"
             alt="user avatar"
           />
 
