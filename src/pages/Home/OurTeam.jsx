@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import photo from "../../content/min-size.jpg";
 
 const OurTeam = () => {
   return (
@@ -20,7 +21,7 @@ const OurTeam = () => {
             <div className="flex flex-col w-96 items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
               <img
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                src="https://scontent.fdac8-1.fna.fbcdn.net/v/t39.30808-6/301607208_738442893912680_3826585296998275048_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH4SIeaFyZ-IsoNd-Nt5VBosysR3I9Z2WmzKxHcj1nZaWSMVQlGPwT15J02vtSSJ_FHrW7jsk02pPWcmCAi8yB5&_nc_ohc=W_PmQReY_uMAX9DyugH&_nc_ht=scontent.fdac8-1.fna&oh=00_AfDvc_ZVUY8b7DRuaREEK9n7Dnj5pRfZDdB49S80vx4OoA&oe=636FF7A9"
+                src={photo}
                 alt=""
               />
 
@@ -29,7 +30,7 @@ const OurTeam = () => {
               </h1>
 
               <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-                CEO
+                MD
               </p>
 
               <div className="flex mt-3 -mx-2">
@@ -68,7 +69,7 @@ const OurTeam = () => {
             <div className="flex flex-col w-96 items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
               <img
                 className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300"
-                src="https://scontent.fdac8-1.fna.fbcdn.net/v/t39.30808-6/301607208_738442893912680_3826585296998275048_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeH4SIeaFyZ-IsoNd-Nt5VBosysR3I9Z2WmzKxHcj1nZaWSMVQlGPwT15J02vtSSJ_FHrW7jsk02pPWcmCAi8yB5&_nc_ohc=W_PmQReY_uMAX9DyugH&_nc_ht=scontent.fdac8-1.fna&oh=00_AfDvc_ZVUY8b7DRuaREEK9n7Dnj5pRfZDdB49S80vx4OoA&oe=636FF7A9"
+                src={photo}
                 alt=""
               />
 
@@ -77,7 +78,7 @@ const OurTeam = () => {
               </h1>
 
               <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-300">
-                Manager
+                CEO
               </p>
 
               <div className="flex mt-3 -mx-2">

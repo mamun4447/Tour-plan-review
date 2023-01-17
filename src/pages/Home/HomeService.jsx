@@ -15,7 +15,7 @@ const HomeService = ({ datas }) => {
         }
       >
         <section className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-          {datas.map((data) => (
+          {datas?.map((data) => (
             <div
               key={data._id}
               className="flex flex-col items-center justify-center w-full max-w-sm mx-auto"

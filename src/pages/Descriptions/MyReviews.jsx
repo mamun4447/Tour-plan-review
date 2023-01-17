@@ -6,19 +6,15 @@ import { toast } from "react-toastify";
 
 const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
-  const [empty, setEmpty] = useState(false);
   const { user } = useContext(AuthContext);
   useTitle("my-reviews");
-
-  if (reviews.length > 0) {
-    setEmpty(true);
-  }
 
   useEffect(() => {
     fetch(`https://server-eight-flame.vercel.app/review?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data.datas));
-  }, [user?.email, setReviews]);
+  }, [user?.email]);
+
   // console.log(reviews);
 
   //====Delete Review====//
@@ -45,8 +41,8 @@ const MyReviews = () => {
   return (
     <div>
       <section className="container mx-auto py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {empty ? (
-          reviews.map((review) => (
+        {reviews?.length ? (
+          reviews?.map((review) => (
             <article>
               <div className="flex items-center mb-4 space-x-4">
                 {review?.image ? (

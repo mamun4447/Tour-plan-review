@@ -14,7 +14,7 @@ const Navbar = () => {
             to="/"
           >
             <FaRegPaperPlane />
-            Brand
+            Tour Plan
           </Link>
 
           <div className="flex flex-wrap items-center justify-center mt-6 text-gray-600 capitalize dark:text-gray-300">

@@ -20,10 +20,10 @@ const Hero = () => {
             </p>
 
             <Link
-              to="/"
+              to="/services"
               className="btn bg-blue-600 border-none my-2 cursor-pointer"
             >
-              Shop Now
+              Get Service
             </Link>
           </div>
         </div>
